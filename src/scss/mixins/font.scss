@@ -1,0 +1,3 @@
+@mixin font($fz: $font-size-base, $lh: $line-height-base, $fw: $font-weight-base, $ff: $font-family-base) {
+  font: $fw #{$fz}/#{$lh} $ff;
+}

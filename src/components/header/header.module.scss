@@ -1,3 +1,21 @@
 .header {
-  
+  padding: 10px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 0;
+  }
+
+  &__logo {
+    width: 122px;
+    height: auto;
+  }
+
+  &__menu {
+    margin-left: 62px;
+  }
 }

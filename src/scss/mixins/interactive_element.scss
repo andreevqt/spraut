@@ -1,0 +1,4 @@
+@mixin interactive_element($color) {
+  @include font(15px, 1, 500);
+  color: $color;
+}

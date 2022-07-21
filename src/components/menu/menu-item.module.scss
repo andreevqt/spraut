@@ -1,0 +1,13 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.menu-item {
+  @include interactive_element($primary);
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+
+  &--active {
+    color: $accent;
+  }
+}
