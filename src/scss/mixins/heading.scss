@@ -1,0 +1,4 @@
+@mixin heading($color: $headings-color) {
+  @include font(20px, 1.5, 700);
+  color: $color;
+}

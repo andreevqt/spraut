@@ -1,0 +1,33 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.footer {
+  padding-top: 48px;
+  padding-bottom: 24px;
+  border: 1px solid $border-color;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-link:not(:last-of-type) {
+  font-size: 0;
+  margin-right: 33px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 0;
+  margin-bottom: 24px;
+}
+
+.copyright {
+  @include font(15px);
+}

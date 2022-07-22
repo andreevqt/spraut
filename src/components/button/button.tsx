@@ -4,22 +4,30 @@ import style from './button.module.scss';
 
 type THtmlTypes = 'button' | 'submit' | 'reset';
 
+type TSize = 'default' | 'fixed';
+
 type TButtonProps = {
   className?: string;
+  children: React.ReactNode;
   htmlType?: THtmlTypes;
-  label: string;
+  size?: TSize;
   outline?: boolean;
 };
 
 const Button = ({
   className,
+  children,
+  size = 'default',
   htmlType = 'button',
-  label,
   outline = false
 }: TButtonProps) => {
+  const classes = clsx(style['button'], style[size], outline && style['outline'], className);
   return (
-    <button type={htmlType} className={clsx(style['button'], outline && style['button--outline'], className)}>
-      {label}
+    <button
+      type={htmlType}
+      className={classes}
+    >
+      {children}
     </button>
   );
 };

@@ -1,21 +1,27 @@
+@import "../../scss/variables";
+
 .header {
+  border: 1px solid $border-color;
   padding: 10px;
+}
 
-  &__container {
-    display: flex;
-    align-items: center;
-  }
+.container {
+  display: flex;
+  align-items: center;
+}
 
-  &__logo {
-    font-size: 0;
-  }
+.logo {
+  font-size: 0;
+}
 
-  &__logo {
-    width: 122px;
-    height: auto;
-  }
+.menu {
+  margin-left: 62px;
+}
 
-  &__menu {
-    margin-left: 62px;
-  }
+.buttons {
+  margin-left: auto;
+}
+
+.log-in {
+  margin-right: 24px;
 }

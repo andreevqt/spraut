@@ -1,7 +1,16 @@
-$primary: #18A0FB;
-$accent: #F99400;
+$white: #fff;
+$black: #000;
+$gray: #dbdbdb;
+$dark-gray: #8E8E8E;
+$primary: #18a0fb;
+$accent: #f99400;
+
+$base-color: rgba(black, .8);
+$headings-color: $black;
 
 $font-size-base: 16px;
 $font-family-base: Montserrat, Arial, Hevletica, sans-serif;
 $font-weight-base: 400;
 $line-height-base: 1.5;
+
+$border-color: $gray;

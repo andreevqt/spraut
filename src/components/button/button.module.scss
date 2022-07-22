@@ -1,5 +1,24 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
 .button {
+  @include interactive_element($white);
+  text-align: center;
+  line-height: 18px;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 10px 25px;
+  border: 1px solid $primary;
   background-color: $primary;
-  &--outline {
-  }
+}
+
+.fixed {
+  width: 130px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.outline {
+  background-color: $white;
+  color: $primary;
 }

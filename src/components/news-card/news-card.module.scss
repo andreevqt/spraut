@@ -1,0 +1,94 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid $border-color;
+}
+
+.featured {
+  margin-bottom: 40px;
+  flex-direction: row-reverse;
+
+  .title {
+    margin-bottom: 0;
+    font-size: 24px;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 79px 24px 24px 24px;
+    flex: 0 0 50%;
+  }
+
+  .content {
+    margin-bottom: 0;
+  }
+
+  .thumbnail {
+    flex: 0 0 50%;
+    height: 411px;
+  }
+}
+
+.thumbnail {
+  position: relative;
+  height: 264px;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.title {
+  @include heading;
+  margin-top: 0;
+  margin-bottom: 16px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.body {
+  padding: 24px 16px 16px 16px;
+}
+
+.content {
+  @include font;
+  margin-top: 0;
+  margin-bottom: 24px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  color: $base-color;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.read-more {
+  @include font($fw: 500);
+  margin-top: auto;
+  color: $primary;
+  text-decoration: none;
+}
+
+.author,
+.date {
+  @include font(14px, $fw: 600);
+  color: $dark-gray;
+}
