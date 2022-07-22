@@ -1,16 +1,26 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import mapper from './mapper';
-import { TEverythingResponse } from './responses';
+import { TEverythingResponse as TArticlesResponse } from './responses';
 
 const BASE_URL = 'https://newsapi.org/v2';
 
-type TEverythingParams = {
+const request = axios.create({ baseURL: BASE_URL, params: { apiKey: process.env.REACT_APP_API_KEY } });
+
+const mapResponse = (response: AxiosResponse<TArticlesResponse, any>) => response.data.articles.map(mapper);
+
+type TTopParams = {
   q?: string;
+  country?: string;
 };
 
-const request = axios.create({ baseURL: BASE_URL, params: { apiKey: process.env.REACT_APP_NOT_SECRET_CODE, country: 'us' } });
+type TEverythingParams = {
+  q: string;
+};
 
 export const posts = {
-  top: (params: TEverythingParams = { q: '' }) => request.get<TEverythingResponse>('/top-headlines', { params })
-    .then((response) => response.data.articles.map(mapper))
+  top: (params: TTopParams = { q: '' }) => request.get<TArticlesResponse>('/top-headlines', { params: { country: 'us', ...params } })
+    .then(mapResponse),
+
+  everything: (params: TEverythingParams) => request.get<TArticlesResponse>('/everything', { params })
+    .then(mapResponse)
 };

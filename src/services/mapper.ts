@@ -9,7 +9,7 @@ export default (post: TArticleData): TPost => {
     content: post.content || 'Нет контента',
     meta: {
       author: post.author || 'Автор неизвестен',
-      date: date
+      date
     },
     thumbnail: post.urlToImage || '',
     url: post.url

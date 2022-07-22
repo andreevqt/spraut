@@ -7,6 +7,7 @@ type THtmlTypes = 'button' | 'submit' | 'reset';
 type TSize = 'default' | 'fixed';
 
 type TButtonProps = {
+  onClick?: (e: React.SyntheticEvent) => void;
   className?: string;
   children: React.ReactNode;
   htmlType?: THtmlTypes;
@@ -19,6 +20,7 @@ const Button = ({
   children,
   size = 'default',
   htmlType = 'button',
+  onClick,
   outline = false
 }: TButtonProps) => {
   const classes = clsx(style['button'], style[size], outline && style['outline'], className);
@@ -26,6 +28,7 @@ const Button = ({
     <button
       type={htmlType}
       className={classes}
+      onClick={onClick}
     >
       {children}
     </button>

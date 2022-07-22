@@ -1,8 +1,8 @@
 import React from 'react';
-import Container from '../container/container';
-import Content from '../content/content';
-import Header from '../header/header';
-import Footer from '../footer/footer';
+import Container from '../components/container/container';
+import Content from '../components/content/content';
+import Header from '../components/header/header';
+import Footer from '../components/footer/footer';
 
 type TBaseProps = {
   children?: React.ReactNode;
