@@ -88,8 +88,8 @@
 
 .author-meta {
   padding-right: 15px;
-  flex: 1 0 0;
-  max-width: 100%;
+  flex: 0 0 70%;
+  max-width: 70%;
 }
 
 .read-more {
@@ -97,6 +97,9 @@
   margin-top: auto;
   color: $primary;
   text-decoration: none;
+  flex: 0 0 30%;
+  text-align: right;
+  max-width: 30%;
 }
 
 .author {
