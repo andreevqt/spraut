@@ -32,6 +32,7 @@ const Button = ({
       type={htmlType}
       className={classes}
       onClick={onClick}
+      disabled={isLoading}
     >
       {
         isLoading && (
