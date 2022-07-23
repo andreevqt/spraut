@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { TPost } from '../../types/common';
+import React, { useCallback, useEffect } from 'react';
 import Button from '../../components/button/button';
 import Base from '../../layouts/base';
 import NewsCard from '../../components/news-card/news-card';

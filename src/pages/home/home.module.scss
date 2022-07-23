@@ -18,7 +18,9 @@
 }
 
 .column {
-  flex: 0 0 percentage(1/3);
+  $size: percentage(1/3);
+  flex: 0 0 $size;
+  max-width: $size;
   margin-bottom: 24px;
 }
 

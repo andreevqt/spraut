@@ -25,6 +25,7 @@ type TTopParams = {
 
 type TEverythingParams = {
   q?: string;
+  from?: string;
   page?: number;
 };
 
@@ -32,6 +33,6 @@ export const posts = {
   top: (params: TTopParams = {}) => request.get<TArticlesResponse>('/top-headlines', { params: { country: 'us', q: '', page: 1, pageSize: 7, ...params } })
     .then(mapResponse),
 
-  everything: (params: TEverythingParams) => request.get<TArticlesResponse>('/everything', { params: { q: '', page: 1, ...params } })
+  everything: (params: TEverythingParams) => request.get<TArticlesResponse>('/everything', { params: { q: '', page: 1, searchIn: 'title', pageSize: 7, ...params } })
     .then(mapResponse)
 };

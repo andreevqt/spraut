@@ -86,11 +86,24 @@
   justify-content: space-between;
 }
 
+.author-meta {
+  padding-right: 15px;
+  flex: 1 0 0;
+  max-width: 100%;
+}
+
 .read-more {
   @include font(14px, $fw: 500);
   margin-top: auto;
   color: $primary;
   text-decoration: none;
+}
+
+.author {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .author,

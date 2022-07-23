@@ -34,11 +34,11 @@ const NewsCard = ({
           {post.content}
         </p>
         <div className={styles['meta']}>
-          <div>
+          <div className={styles['author-meta']}>
             <div className={styles['author']}>{post.meta.author}</div>
             <div className={styles['date']}>{post.meta.date}</div>
           </div>
-          <a href={post.url} className={styles['read-more']}>Подробнее</a>
+          <a href={post.url} className={clsx(styles['read-more'])}>Подробнее</a>
         </div>
       </div>
     </div>

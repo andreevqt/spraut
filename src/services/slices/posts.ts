@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { AxiosError } from 'axios';
 import { TPost } from '../../types/common';
 import * as api from '../api';
 import { AppDispatch, RootState } from '../store';
@@ -23,15 +22,14 @@ const initialState: TPostsState = {
   page: 1,
   isLoading: false,
   hasMore: true,
-  q: ''
+  q: 'Nasa'
 };
-
 
 export const listPosts = createAsyncThunk<api.TMappedREsponse, boolean | undefined, TConfig>(
   'posts/fetchPosts',
   ((reset = false, { rejectWithValue, getState, dispatch }) => {
     const { page, q } = getState().posts;
-    return api.posts.top({ page: reset ? 1 : page, q })
+    return api.posts.everything({ page: reset ? 1 : page, q })
       .catch((err) => rejectWithValue(err.response.data.message))
   })
 );
@@ -59,6 +57,7 @@ export const postsSlice = createSlice({
       state.posts = state.page === 1 ? posts : [...state.posts, ...posts];
       state.hasMore = state.posts.length < total;
       state.page++;
+      state.error = undefined;
     });
 
     builder.addCase(listPosts.pending, (state) => {
