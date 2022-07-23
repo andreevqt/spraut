@@ -29,12 +29,9 @@ const initialState: TPostsState = {
 
 export const listPosts = createAsyncThunk<api.TMappedREsponse, boolean | undefined, TConfig>(
   'posts/fetchPosts',
-  ((forceFirstPage = false, { rejectWithValue, getState, dispatch }) => {
+  ((reset = false, { rejectWithValue, getState, dispatch }) => {
     const { page, q } = getState().posts;
-    if (forceFirstPage) {
-      dispatch(setPage(1));
-    }
-    return api.posts.top({ page: forceFirstPage ? 1 : page, q })
+    return api.posts.top({ page: reset ? 1 : page, q })
       .catch((err) => rejectWithValue(err.response.data.message))
   })
 );
@@ -55,9 +52,12 @@ export const postsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(listPosts.fulfilled, (state, action) => {
+      const { posts, total } = action.payload;
+      const page = action.meta.arg;
+      state.page = page ? 1 : state.page;
       state.isLoading = false;
-      state.posts = state.page === 1 ? action.payload.posts : [...state.posts, ...action.payload.posts];
-      state.hasMore = state.posts.length < action.payload.total;
+      state.posts = state.page === 1 ? posts : [...state.posts, ...posts];
+      state.hasMore = state.posts.length < total;
       state.page++;
     });
 
