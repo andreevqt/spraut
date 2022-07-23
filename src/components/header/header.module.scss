@@ -19,10 +19,11 @@
 }
 
 .buttons {
-  margin-left: auto;
+  margin-left: 20px;
+  flex: 1 0 0;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: auto 1fr 1fr;
+  grid-template-columns: auto min-content min-content;
   column-gap: 24px;
 }
 

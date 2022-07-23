@@ -16,18 +16,17 @@
   cursor: pointer;
 }
 
-.input {
-  input {
-    @include font(14px, 18px);
-    position: relative;
-    background-color: $white;
-    border-radius: 6px;
-    padding: 10px 40px 10px 16px;
-    border: 1px solid $primary;
+.input input {
+  @include font(14px, 18px);
+  width: 100%;
+  position: relative;
+  background-color: $white;
+  border-radius: 6px;
+  padding: 10px 40px 10px 16px;
+  border: 1px solid $primary;
 
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
   }
 }
 
