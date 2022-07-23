@@ -18,7 +18,7 @@ export type TPostActionFulfilled = {
 export type TPostActionError = {
   type: PostActionType.ERROR,
   error: string;
-}
+};
 
 export type TPostActionType =
   | TPostActionPending

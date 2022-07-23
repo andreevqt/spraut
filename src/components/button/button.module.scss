@@ -1,8 +1,10 @@
-@import '../../scss/variables';
-@import '../../scss/mixins';
+@import "../../scss/variables";
+@import "../../scss/mixins";
 
 .button {
   @include interactive_element($white);
+  overflow: hidden;
+  position: relative;
   text-align: center;
   line-height: 18px;
   cursor: pointer;
@@ -21,4 +23,30 @@
 .outline {
   background-color: $white;
   color: $primary;
+  .loader {
+    background-color: $white;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    animation: spin 2s linear infinite;
+  }
 }

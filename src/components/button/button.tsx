@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import style from './button.module.scss';
+import styles from './button.module.scss';
+import Loader from '../../icons/loader';
 
 type THtmlTypes = 'button' | 'submit' | 'reset';
 
@@ -12,6 +13,7 @@ type TButtonProps = {
   children: React.ReactNode;
   htmlType?: THtmlTypes;
   size?: TSize;
+  isLoading?: boolean;
   outline?: boolean;
 };
 
@@ -21,15 +23,23 @@ const Button = ({
   size = 'default',
   htmlType = 'button',
   onClick,
-  outline = false
+  outline = false,
+  isLoading = false
 }: TButtonProps) => {
-  const classes = clsx(style['button'], style[size], outline && style['outline'], className);
+  const classes = clsx(styles['button'], styles[size], outline && styles['outline'], className);
   return (
     <button
       type={htmlType}
       className={classes}
       onClick={onClick}
     >
+      {
+        isLoading && (
+          <div className={styles['loader']}>
+            <Loader />
+          </div>
+        )
+      }
       {children}
     </button>
   );

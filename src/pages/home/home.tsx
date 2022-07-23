@@ -22,6 +22,7 @@ const Home = () => {
 
   return (
     <Base>
+      {error && <p className={styles['error']}>{error}</p>}
       <div className={styles['news']}>
         {
           posts.map((post, idx) => idx === 0 ? (
@@ -37,8 +38,8 @@ const Home = () => {
       </div>
       <div className={styles['pagination']}>
         {
-          hasMore && (
-            <Button onClick={() => dispatch(listPosts())} outline>
+          posts.length > 0 && hasMore && (
+            <Button onClick={() => dispatch(listPosts())} isLoading={isLoading} outline>
               Загрузить еще
             </Button>
           )

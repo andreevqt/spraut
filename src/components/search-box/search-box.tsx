@@ -49,6 +49,7 @@ const SearchBox = ({
         isShown && (
           <div className={styles['input']}>
             <input
+              placeholder="Введите запрос"
               value={q}
               ref={ref}
               type="text"

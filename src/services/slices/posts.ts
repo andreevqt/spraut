@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { AxiosError } from 'axios';
 import { TPost } from '../../types/common';
 import * as api from '../api';
 import { AppDispatch, RootState } from '../store';
@@ -34,7 +35,7 @@ export const listPosts = createAsyncThunk<api.TMappedREsponse, boolean | undefin
       dispatch(setPage(1));
     }
     return api.posts.top({ page: forceFirstPage ? 1 : page, q })
-      .catch((err) => rejectWithValue(err))
+      .catch((err) => rejectWithValue(err.response.data.message))
   })
 );
 
@@ -65,8 +66,8 @@ export const postsSlice = createSlice({
     });
 
     builder.addCase(listPosts.rejected, (state, action) => {
-      state = initialState;
-      state.error = action.error.message;
+      state.error = action.payload as string;
+      state.hasMore = false;
     });
   }
 });

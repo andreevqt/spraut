@@ -9,7 +9,7 @@ import Odnoklassniki from '../../icons/odnoklassniki';
 
 const Footer = () => {
   return (
-    <div className={styles['footer']}>
+    <footer className={styles['footer']}>
       <Container className={styles['container']}>
         <div className={styles['left']} >
           <a href="#" className={styles['logo']}>
@@ -33,7 +33,7 @@ const Footer = () => {
           </a>
         </div>
       </Container>
-    </div>
+    </footer>
   );
 };
 

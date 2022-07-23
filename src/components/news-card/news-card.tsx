@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import { TPost } from '../../types/common';
+import LazyImg from '../lazy-img/lazy-img';
 import styles from './news-card.module.scss';
 
 type TNewsCardProps = {
@@ -14,16 +15,17 @@ const NewsCard = ({
 }: TNewsCardProps) => {
   return (
     <div className={clsx(styles['card'], featured && styles['featured'])}>
-      <div className={styles['thumbnail']}>
-        <img
-          onError={({ currentTarget }) => {
-            currentTarget.onerror = null;
-            currentTarget.src = '/images/placeholder.svg';
-          }}
-          src={post.thumbnail}
-          alt={post.title}
-        />
-      </div>
+      {
+        post.thumbnail && (
+          <div className={styles['thumbnail']}>
+            <LazyImg
+              placeholder={{ width: 364, height: 282 }}
+              src={post.thumbnail}
+              alt={post.title}
+            />
+          </div>
+        )
+      }
       <div className={styles['body']}>
         <h5 className={styles['title']}>{post.title}</h5>
         <p className={styles['content']}>
