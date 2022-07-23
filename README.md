@@ -1,5 +1,6 @@
 # Tестовое задание
 ## Переменные среды
+Создайте `.env`  файл в директории проекта или пропишите в `PATH`:
 ```sh
   # Ваш API ключ https://newsapi.org
   REACT_APP_API_KEY=e72e9e71dccd42f19cde313bb0dcc933
