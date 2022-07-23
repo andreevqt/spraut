@@ -1,0 +1,43 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.search-box {
+  position: relative;
+}
+
+.toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.input {
+  input {
+    @include font(14px, 18px);
+    position: relative;
+    background-color: $white;
+    border-radius: 6px;
+    padding: 10px 40px 10px 16px;
+    border: 1px solid $primary;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 11px;
+  right: 16px;
+  color: $primary;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

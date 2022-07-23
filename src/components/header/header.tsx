@@ -5,6 +5,7 @@ import Container from '../container/container';
 import Menu from '../menu/menu';
 import MenuItem from '../menu/menu-item';
 import Button from '../button/button';
+import SearchBox from '../search-box/search-box';
 
 const Header = () => {
   return (
@@ -20,7 +21,8 @@ const Header = () => {
           <MenuItem label="Контакты" />
         </Menu>
         <div className={styles['buttons']}>
-          <Button className={styles['log-in']} size="fixed" outline>Войти</Button>
+          <SearchBox className={styles['search']} />
+          <Button size="fixed" outline>Войти</Button>
           <Button size="fixed">Регистрация</Button>
         </div>
       </Container>

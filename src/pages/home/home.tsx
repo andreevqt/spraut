@@ -1,16 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { TPost } from '../../types/common';
 import Button from '../../components/button/button';
 import Base from '../../layouts/base';
 import NewsCard from '../../components/news-card/news-card';
 import styles from './home.module.scss';
-import * as api from '../../services/api';
+import { useAppDispatch, useAppSelector } from '../../services/store';
+import { listPosts } from '../../services/slices/posts';
+import debounce from 'lodash.debounce';
 
 const Home = () => {
-  const [posts, setPosts] = useState<TPost[]>([]);
+  const { q, posts, isLoading, hasMore, error } = useAppSelector((state) => state.posts);
+  const dispatch = useAppDispatch();
+
+  const listDebounced = useCallback(debounce(() => {
+    dispatch(listPosts(true));
+  }, 300), []);
+
   useEffect(() => {
-    api.posts.top().then((posts) => posts.splice(0, 4)).then(setPosts);
-  }, []);
+    listDebounced();
+  }, [q]);
 
   return (
     <Base>
@@ -28,7 +36,13 @@ const Home = () => {
         }
       </div>
       <div className={styles['pagination']}>
-        <Button outline>Загрузить еще</Button>
+        {
+          hasMore && (
+            <Button onClick={() => dispatch(listPosts())} outline>
+              Загрузить еще
+            </Button>
+          )
+        }
       </div>
     </Base>
   );

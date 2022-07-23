@@ -6,12 +6,12 @@ export default (post: TArticleData): TPost => {
   const date = `${String(d.getFullYear()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
   return ({
     title: post.title,
-    content: post.content || 'Нет контента',
+    content: post.content ?? '',
     meta: {
-      author: post.author || 'Автор неизвестен',
+      author: post.author ?? 'Автор',
       date
     },
-    thumbnail: post.urlToImage || '',
+    thumbnail: post.urlToImage ?? '',
     url: post.url
   });
 };

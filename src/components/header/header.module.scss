@@ -20,8 +20,13 @@
 
 .buttons {
   margin-left: auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: auto 1fr 1fr;
+  column-gap: 24px;
 }
 
-.log-in {
-  margin-right: 24px;
+.search button{
+  color: $primary;
 }
+

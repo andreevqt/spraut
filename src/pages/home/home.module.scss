@@ -1,18 +1,22 @@
 .news {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 -12px;
+}
+
+.featured,
+.column {
+  padding: 0 12px;
 }
 
 .featured {
   flex: 1 0 100%;
+  margin-bottom: 40px;
 }
 
 .column {
   flex: 0 0 percentage(1/3);
-
-  &:not(:last-of-type) {
-    padding-right: 24px;
-  }
+  margin-bottom: 24px;
 }
 
 .pagination {

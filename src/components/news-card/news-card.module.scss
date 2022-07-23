@@ -7,11 +7,12 @@
   overflow: hidden;
   border-radius: 8px;
   border: 1px solid $border-color;
+  height: 100%;
 }
 
 .featured {
-  margin-bottom: 40px;
   flex-direction: row-reverse;
+  height: auto;
 
   .title {
     margin-bottom: 0;
@@ -19,14 +20,15 @@
   }
 
   .body {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
     padding: 79px 24px 24px 24px;
     flex: 0 0 50%;
   }
 
   .content {
+    font-size: 18px;
+    line-height: 30px;
+    flex-grow: 0;
     margin-bottom: 0;
   }
 
@@ -61,16 +63,20 @@
 }
 
 .body {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
   padding: 24px 16px 16px 16px;
 }
 
 .content {
   @include font;
+  flex: 1 0 auto;
   margin-top: 0;
   margin-bottom: 24px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   color: $base-color;
 }
@@ -81,7 +87,7 @@
 }
 
 .read-more {
-  @include font($fw: 500);
+  @include font(14px, $fw: 500);
   margin-top: auto;
   color: $primary;
   text-decoration: none;

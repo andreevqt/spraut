@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { TPost } from '../../types/common';
 import styles from './news-card.module.scss';
@@ -16,6 +16,10 @@ const NewsCard = ({
     <div className={clsx(styles['card'], featured && styles['featured'])}>
       <div className={styles['thumbnail']}>
         <img
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null;
+            currentTarget.src = '/images/placeholder.svg';
+          }}
           src={post.thumbnail}
           alt={post.title}
         />
