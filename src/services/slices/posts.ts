@@ -27,11 +27,11 @@ const initialState: TPostsState = {
 
 export const listPosts = createAsyncThunk<api.TMappedREsponse, boolean | undefined, TConfig>(
   'posts/fetchPosts',
-  ((reset = false, { rejectWithValue, getState, dispatch }) => {
+  (reset = false, { rejectWithValue, getState, dispatch }) => {
     const { page, q } = getState().posts;
     return api.posts.everything({ page: reset ? 1 : page, q })
       .catch((err) => rejectWithValue(err.response.data.message))
-  })
+  }
 );
 
 export const postsSlice = createSlice({

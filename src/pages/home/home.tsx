@@ -25,7 +25,7 @@ const Home = () => {
       <div className={styles['news']}>
         {
           posts.map((post, idx) => idx === 0 ? (
-            <div className={styles['featured']} key={idx + post.url}>
+            <div className={styles['featured']} key={idx}>
               <NewsCard post={post} featured />
             </div>
           ) : (
