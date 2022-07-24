@@ -54,12 +54,9 @@
 
 .title {
   @include heading;
+  @include ellipsis(2);
   margin-top: 0;
   margin-bottom: 16px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 
 .body {
@@ -71,14 +68,11 @@
 
 .content {
   @include font;
+  @include ellipsis(5);
+  color: $base-color;
   flex: 1 0 auto;
   margin-top: 0;
   margin-bottom: 24px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
-  color: $base-color;
 }
 
 .meta {
@@ -103,10 +97,7 @@
 }
 
 .author {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  @include ellipsis(2);
 }
 
 .author,
