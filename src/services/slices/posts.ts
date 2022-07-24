@@ -29,7 +29,7 @@ export const listPosts = createAsyncThunk<api.TMappedREsponse, boolean | undefin
   'posts/fetchPosts',
   (reset = false, { rejectWithValue, getState, dispatch }) => {
     const { page, q } = getState().posts;
-    return api.posts.everything({ page: reset ? 1 : page, q })
+    return api.posts.everything({ page: reset ? 1 : page, q, pageSize: reset || page === 1 ? 4 : 6 })
       .catch((err) => rejectWithValue(err.response.data.message))
   }
 );

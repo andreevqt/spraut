@@ -20,11 +20,13 @@ const mapResponse = (response: AxiosResponse<TArticlesResponse, any>): TMappedRE
 type TTopParams = {
   q?: string;
   page?: number;
+  pageSize?: string;
   country?: string;
 };
 
 type TEverythingParams = {
   q?: string;
+  pageSize?: number;
   from?: string;
   page?: number;
 };
