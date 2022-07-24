@@ -19,9 +19,18 @@ const Home = () => {
     listDebounced();
   }, [q]);
 
+  if (error) {
+    return (
+      <Base>
+        <p className={styles['error']}>
+          {error}
+        </p>
+      </Base>
+    );
+  }
+
   return (
     <Base>
-      {error && <p className={styles['error']}>{error}</p>}
       <div className={styles['news']}>
         {
           posts.map((post, idx) => idx === 0 ? (
