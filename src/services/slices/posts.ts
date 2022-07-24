@@ -51,8 +51,8 @@ export const postsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(listPosts.fulfilled, (state, action) => {
       const { posts, total } = action.payload;
-      const page = action.meta.arg;
-      state.page = page ? 1 : state.page;
+      const reset = action.meta.arg;
+      state.page = reset ? 1 : state.page;
       state.isLoading = false;
       state.posts = state.page === 1 ? posts : [...state.posts, ...posts];
       state.hasMore = state.posts.length < total;
